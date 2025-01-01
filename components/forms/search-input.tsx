@@ -1,52 +1,67 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { Search } from "lucide-react";
+import { Search, SearchIcon } from "lucide-react";
 import { Input } from "@/components/ui/input";
-import { useRouter, useSearchParams } from "next/navigation";
-import { useDebouncedCallback } from "use-debounce";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
+const categories = ["men", "women", "kids", "accessories"];
 
 const SearchInput = () => {
-  const searchParams = useSearchParams();
-  const searchData = searchParams.get("search")?.toString() || "";
-  const [search, setSearch] = useState(searchData);
-
-  const { replace } = useRouter();
-
-  const handleSearch = useDebouncedCallback((value: string) => {
-    const params = new URLSearchParams(searchParams);
-    if (value) {
-      params.set("search", value);
-    } else {
-      params.delete("search");
-    }
-    replace(`/products?${params.toString()}`);
-  }, 500);
-
-  const searchParamsString = searchParams.get("search");
-
-  useEffect(() => {
-    if (!searchParamsString) {
-      setSearch("");
-    }
-  }, [searchParamsString, searchParams]);
-
   return (
-    <form className="w-full">
-      <div className="relative">
-        <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+    <form action="/search" method="GET" className="w-full items-strech flex">
+      <div className="border-none bg-secondary ring-muted-foreground rounded-md group [&:has(:focus-visible)]:ring-1 [&:has(:focus-visible)]:ring-primary [&:has(:focus-visible)]:shadow-lg [&:has(:focus-visible)]:border-transparent w-full items-strech flex">
+        <Select name="category">
+          <SelectTrigger className="w-auto h-9 border-0 rounded-md rounded-r-none focus:ring-0 focus:ring-offset-0 focus-visible:ring-0 focus-visible:ring-offset-0 text-xs capitalize text-muted-foreground pr-0 mr-2">
+            <SelectValue
+              placeholder="All"
+              className="text-sm text-muted-foreground"
+            />
+          </SelectTrigger>
+          <SelectContent position="popper">
+            <SelectItem
+              value="all"
+              className="cursor-pointer text-xs capitalize text-muted-foreground"
+            >
+              All
+            </SelectItem>
+            {categories.map((category) => {
+              return (
+                <SelectItem
+                  key={category}
+                  value={category}
+                  className="cursor-pointer text-xs capitalize text-muted-foreground"
+                >
+                  {category}
+                </SelectItem>
+              );
+            })}
+          </SelectContent>
+        </Select>
         <Input
           type="search"
           placeholder="Search products"
-          className="w-full appearance-none bg-background pl-8 shadow-none"
-          value={search}
+          className="text-foreground w-full appearance-none bg-transparent shadow-none rounded-md border-0 rounded-l-none border-transparent focus-visible:ring-0 focus-visible:ring-offset-0 pl-0"
+          //value={search}
           onChange={(event) => {
             event.preventDefault();
-            setSearch(event.target.value);
-            handleSearch(event.target.value);
           }}
         />
+        <button
+          type="submit"
+          className="bg-primary border-transparent outline-none rounded-r-md px-3"
+        >
+          <SearchIcon className="w-4 h-4 text-secundary" />
+        </button>
       </div>
+      {/* <div className="relative">
+        <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+      </div> */}
     </form>
   );
 };

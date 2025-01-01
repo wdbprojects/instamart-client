@@ -6,7 +6,7 @@ const UserIcon = () => {
   return (
     <Image
       src={avatarPlaceholder}
-      alt="User profile picture"
+      alt="UserModel profile picture"
       width={50}
       height={50}
       className="h-6 w-6 rounded-full object-cover"

@@ -5,15 +5,18 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 const montserrat = Montserrat({ subsets: ["latin"], display: "swap" });
 import { Toaster } from "@/components/ui/sonner";
+import { APP_NAME } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | Instamart",
-    default: "Ecommerce store",
+    template: `%s - ${APP_NAME}`,
+    default: "Instamart",
   },
   description: "Fullstack ecommerce application",
   applicationName: "Instamart",
 };
+
+console.log(typeof APP_NAME);
 
 export default function RootLayout({
   children,

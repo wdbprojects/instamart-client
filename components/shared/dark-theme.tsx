@@ -17,9 +17,9 @@ const DarkMode = () => {
   return (
     <div className="flex flex-col justify-center items-start gap-2 space-x-2">
       <Toggle
-        className="!data-[state=on]:bg-transparent"
+        className="!data-[state=on]:bg-transparent p-5"
         aria-label="Toggle theme"
-        variant="switch"
+        variant="outline"
         pressed={theme === "dark"}
         onPressedChange={() => {
           setTheme(theme === "dark" ? "light" : "dark");

@@ -17,16 +17,10 @@ import { dataSidebar } from "@/lib/data";
 
 const AppSidebar = ({ ...props }: ComponentProps<typeof Sidebar>) => {
   return (
-    <Sidebar {...props}>
+    <Sidebar {...props} variant="floating">
       <SidebarHeader>
-        <SidebarMenu className="border-b h-12 px-0">
-          <SidebarMenuItem>
-            <SidebarMenuButton size="lg" asChild variant="default">
-              <Link href="#" className="font-normal text-xl uppercase">
-                Categories
-              </Link>
-            </SidebarMenuButton>
-          </SidebarMenuItem>
+        <SidebarMenu className="border-b h-12 px-0 flex justify-center">
+          <h2 className="text-xl font-medium uppercase">Categories</h2>
         </SidebarMenu>
       </SidebarHeader>
       <SidebarContent>

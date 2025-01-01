@@ -1,12 +1,21 @@
-import React from "react";
-import {
-  SidebarInset,
-  SidebarProvider,
-  SidebarTrigger,
-} from "@/components/ui/sidebar";
+"use client";
+
+import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
+import { useSidebar } from "@/components/ui/sidebar";
 import AppSidebar from "@/components/sidebar/app-sidebar";
 import { Separator } from "@/components/ui/separator";
 import Header from "@/components/layout/header";
+import { Menu } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+export function CustomTrigger() {
+  const { toggleSidebar } = useSidebar();
+  return (
+    <Button onClick={toggleSidebar} size="icon" variant="outline">
+      <Menu size={24} className="" />
+    </Button>
+  );
+}
 
 const Dashboard = () => {
   return (
@@ -15,7 +24,8 @@ const Dashboard = () => {
       <SidebarInset>
         <header className="flex h-14 shrink-0 items-center gap-2 border-b">
           <div className="flex items-center gap-2 px-3 w-full">
-            <SidebarTrigger variant="secondary" />
+            {/* <SidebarTrigger variant="outline" /> */}
+            <CustomTrigger />
             <Separator orientation="vertical" className="h-4" />
             {/* HEADER */}
             <Header />
