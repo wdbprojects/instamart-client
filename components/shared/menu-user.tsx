@@ -10,7 +10,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import { ChevronDown, LogOut, Menu } from "lucide-react";
+import { ChevronDown, KeyRound, LogOut, Menu } from "lucide-react";
 import UserIcon from "@/components/shared/user-icon";
 import { userMenuLinks } from "@/lib/data";
 import Link from "next/link";
@@ -23,19 +23,24 @@ const MenuUser = () => {
     return (
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button
-            variant="link"
-            size="lg"
-            className="flex gap-2 focus-visible:ring-0 !py-[20px] px-2 hover:background-transparent text-foreground hover:text-foreground border border-transparent hover:no-underline hover:border hover:border-neutral-400"
-          >
-            <div className="leading-0 text-left">
-              <p className="block font-light text-sm m-0 leading-0">
-                Hello, sign in
-              </p>
-              <p className="block font-bold leading-0">Account & Orders</p>
+          <div>
+            <Button
+              variant="link"
+              size="lg"
+              className="gap-2 focus-visible:ring-0 !py-[20px] px-2 hover:background-transparent text-foreground hover:text-foreground border border-transparent hover:no-underline hover:border hover:border-neutral-400 hidden md:flex"
+            >
+              <div className="leading-0 text-left">
+                <p className="block font-light text-sm m-0 leading-0">
+                  Hello, sign in
+                </p>
+                <p className="block font-bold leading-0">Account & Orders</p>
+              </div>
+              <ChevronDown className="h-6 w-6" />
+            </Button>
+            <div className="flex gap-2 focus-visible:ring-0 cursor-pointer px-2 py-2 hover:background-transparent rounded-md text-foreground hover:text-foreground border border-transparent hover:no-underline hover:border hover:border-neutral-400 md:hidden">
+              <KeyRound className="h-6 w-6" />
             </div>
-            <ChevronDown className="h-6 w-6" />
-          </Button>
+          </div>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-56 pb-2" align="end" sideOffset={5}>
           <DropdownMenuLabel className="text-center mb-1">

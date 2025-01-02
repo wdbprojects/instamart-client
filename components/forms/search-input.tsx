@@ -54,7 +54,7 @@ const SearchInput = () => {
         />
         <button
           type="submit"
-          className="bg-primary border-transparent outline-none rounded-r-md px-3"
+          className="hidden sm:block bg-primary border-transparent outline-none rounded-r-md px-3"
         >
           <SearchIcon className="w-4 h-4 text-secundary" />
         </button>
