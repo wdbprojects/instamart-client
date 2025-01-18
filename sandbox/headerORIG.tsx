@@ -7,7 +7,7 @@ import SearchInput from "@/components/forms/search-input";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import CartButton from "@/components/cart/cart-button";
-import MenuUser from "@/components/shared/menu-user";
+import MenuUser from "@/components/sidebar/menu-user";
 
 const Header = () => {
   return (

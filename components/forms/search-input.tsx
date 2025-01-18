@@ -9,6 +9,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { APP_NAME } from "@/lib/constants";
 
 const categories = ["men", "women", "kids", "accessories"];
 
@@ -20,13 +21,13 @@ const SearchInput = () => {
           <SelectTrigger className="w-auto h-9 border-0 rounded-md rounded-r-none focus:ring-0 focus:ring-offset-0 focus-visible:ring-0 focus-visible:ring-offset-0 text-xs capitalize text-muted-foreground pr-0 mr-2">
             <SelectValue
               placeholder="All"
-              className="text-sm text-muted-foreground"
+              className="text-sm text-foreground"
             />
           </SelectTrigger>
           <SelectContent position="popper">
             <SelectItem
               value="all"
-              className="cursor-pointer text-xs capitalize text-muted-foreground"
+              className="cursor-pointer text-xs capitalize text-foreground"
             >
               All
             </SelectItem>
@@ -45,7 +46,7 @@ const SearchInput = () => {
         </Select>
         <Input
           type="search"
-          placeholder="Search products"
+          placeholder={`Search ${APP_NAME}`}
           className="text-foreground w-full appearance-none bg-transparent shadow-none rounded-md border-0 rounded-l-none border-transparent focus-visible:ring-0 focus-visible:ring-offset-0 pl-0"
           //value={search}
           onChange={(event) => {

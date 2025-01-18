@@ -17,7 +17,7 @@ import { dataSidebar } from "@/lib/data";
 
 const AppSidebar = ({ ...props }: ComponentProps<typeof Sidebar>) => {
   return (
-    <Sidebar {...props} variant="floating">
+    <Sidebar {...props} variant="sidebar">
       <SidebarHeader>
         <SidebarMenu className="border-b h-12 px-0 flex justify-center">
           <h2 className="text-xl font-medium uppercase">Categories</h2>

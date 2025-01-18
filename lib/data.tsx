@@ -61,6 +61,55 @@ export const userMenuLinks: NavLink[] = [
   },
 ];
 
+/* SUBMENU */
+export const subMenuLinks = [
+  {
+    id: 1,
+    name: "Today's Deal",
+    href: "/search?tag=todays-deal",
+  },
+  {
+    id: 2,
+    name: "New Arrivals",
+    href: "/search?tag=new-arrival",
+  },
+];
+
+export const moreSubMenuLinks = [
+  {
+    id: 0,
+    name: "Featured Products",
+    href: "/search?tag=featured",
+  },
+  {
+    id: 1,
+    name: "Best Sellers",
+    href: "/search?tag=best-seller",
+  },
+  {
+    id: 2,
+    name: "Browsing History",
+    href: "/#browsing-history",
+  },
+  {
+    id: 3,
+    name: "Customer Service",
+    href: "/page/customer-service",
+  },
+  {
+    id: 4,
+    name: "About Us",
+    href: "/page/about-us",
+  },
+  {
+    id: 5,
+    name: "Help",
+    href: "/page/help",
+  },
+];
+
+/* SIDEBAR */
+
 export const dataSidebar = {
   navMain: [
     {

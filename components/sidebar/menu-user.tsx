@@ -46,8 +46,13 @@ const MenuUser = () => {
           <DropdownMenuLabel className="text-center mb-1">
             Log in or sign up
           </DropdownMenuLabel>
-          <Button variant="default" size="sm" className="w-full font-semibold">
-            Sign in
+          <Button
+            variant="default"
+            size="sm"
+            className="w-full font-semibold"
+            asChild
+          >
+            <Link href="/login">Sign in</Link>
           </Button>
           <Separator className="mt-2 mb-1" />
           <p className="text-center text-xs">
