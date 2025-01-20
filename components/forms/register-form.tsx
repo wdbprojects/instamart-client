@@ -17,7 +17,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { Input } from "@/components/ui/input";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { LoaderCircle } from "lucide-react";
 import { registerUser } from "@/config/api";
@@ -155,9 +154,9 @@ const RegisterForm = () => {
                   <FormControl>
                     <Input
                       {...field}
-                      disabled={isPending}
-                      placeholder="Enter your password"
                       type="password"
+                      disabled={isPending}
+                      placeholder="********"
                       autoComplete="off"
                     />
                   </FormControl>
@@ -178,6 +177,7 @@ const RegisterForm = () => {
                     <Input
                       {...field}
                       type="password"
+                      disabled={isPending}
                       placeholder="********"
                       autoComplete="off"
                       onKeyDown={(event) => {

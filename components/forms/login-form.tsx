@@ -97,6 +97,7 @@ const LoginForm = () => {
                       disabled={isPending}
                       placeholder="Enter your email"
                       autoComplete="off"
+                      autoFocus
                     />
                   </FormControl>
                   <FormMessage />
@@ -129,7 +130,7 @@ const LoginForm = () => {
                       size="sm"
                       className="!m-0 !p-0"
                     >
-                      <Link href="/auth/reset">Forgot password</Link>
+                      <Link href="/password/forgot">Forgot password</Link>
                     </Button>
                   </div>
                 </FormItem>
