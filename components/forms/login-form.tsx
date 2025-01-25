@@ -34,12 +34,12 @@ const LoginForm = () => {
   const {
     mutate: signIn,
     isPending,
-    isError,
-    isSuccess,
+    // isError,
+    // isSuccess,
   } = useMutation({
     mutationFn: loginUser,
     onSuccess: () => {
-      router.push("/dashboard");
+      setSuccessMessage("Login successful");
     },
   });
 
@@ -49,7 +49,6 @@ const LoginForm = () => {
       email: "",
       password: "",
     },
-    mode: "onChange",
   });
 
   const {
@@ -61,18 +60,20 @@ const LoginForm = () => {
 
   const onSubmit = (values: z.infer<typeof loginFormSchema>) => {
     const { email, password } = values;
-    signIn({ email, password });
+    signIn(
+      { email, password },
+      {
+        onSuccess: () => {
+          router.replace("/dashboard");
+        },
+        onError: (error) => {
+          setErrorMessage(error?.message || "An error occurred, try again");
+          console.log(error);
+        },
+      }
+    );
     reset();
   };
-
-  useEffect(() => {
-    if (isError) {
-      setErrorMessage("Invalid email or password WDB");
-    }
-    if (isSuccess) {
-      setSuccessMessage("Login successful");
-    }
-  }, [isError, isSuccess]);
 
   return (
     <CardWrapper
